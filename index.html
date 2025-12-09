@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>天气与地图</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入百度地图API -->
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=VR2RzJdWzy0RrhvYqusALjkT5nunAClg"></script>
+    <!-- 引入CSS文件 -->
+    <link rel="stylesheet" href="css/map-styles.css">
+</head>
+<body>
+<div class="search-container">
+    <div class="search-box">
+        <input type="text"
+               id="citySearch"
+               class="search-input"
+               placeholder="输入城市名称，如：北京、上海"
+               autocomplete="off">
+        <button id="searchButton" class="search-button">搜索</button>
+    </div>
+    <div id="searchSuggestions" class="search-suggestions"></div>
+</div>
+
+<div id="container"></div>
+<div id="weatherInfo">
+    <button class="close-btn" onclick="closeWeatherInfo()">×</button>
+    <div id="loading">加载中...</div>
+    <div id="weatherContent">
+        <div class="weather-item">
+            <strong id="location">-</strong>
+        </div>
+        <div class="weather-item">
+            <span id="temp" class="temp">-</span>
+        </div>
+        <div class="weather-item">
+            天气：<span id="condition">-</span>
+        </div>
+        <div class="weather-item">
+            湿度：<span id="humidity">-</span>
+        </div>
+        <div class="weather-item">
+            风速：<span id="wind">-</span>
+        </div>
+        <a href="#" id="detailLink" class="detail-btn">查看详细预报</a>
+    </div>
+    <div id="error">天气获取失败</div>
+</div>
+<!-- 引入JavaScript文件 -->
+<script src="js/utils.js"></script>
+<script src="js/map-script.js"></script>
+</body>
+</html>

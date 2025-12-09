@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>天气详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Chart.js 用于绘制图表 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/detail-styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <a href="javascript:history.back()" class="back-btn">← 返回地图</a>
+        <h1 id="cityTitle" class="city-name">天气详情</h1>
+        <p id="currentTime"></p>
+    </header>
+
+    <div id="loading" class="loading">
+        正在加载天气数据...
+    </div>
+
+    <div id="content" style="display: none;">
+        <!-- 当前天气 -->
+        <div class="current-weather">
+            <div class="weather-grid">
+                <div class="weather-card">
+                    <h3>当前天气</h3>
+                    <div class="temp-big" id="currentTemp">--°C</div>
+                    <div class="weather-icon">☀️</div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span>体感温度</span>
+                            <span id="feelsLike">--°C</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>天气状况</span>
+                            <span id="weatherText">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weather-card">
+                    <h3>气象数据</h3>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span>湿度</span>
+                            <span id="humidity">--%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>风速</span>
+                            <span id="windSpeed">-- km/h</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>风向</span>
+                            <span id="windDir">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>气压</span>
+                            <span id="pressure">-- hPa</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>能见度</span>
+                            <span id="visibility">-- km</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>更新时间</span>
+                            <span id="updateTime">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7天预报 -->
+        <div class="forecast-container">
+            <h2>7天天气预报</h2>
+            <div class="forecast-days" id="forecastDays">
+            </div>
+        </div>
+
+        <!-- 温度图表 -->
+        <div class="chart-container">
+            <h2>温度变化趋势</h2>
+            <canvas id="tempChart"></canvas>
+        </div>
+
+        <!-- 降水量图表 -->
+        <div class="chart-container">
+            <h2>降水量预报</h2>
+            <canvas id="precipChart"></canvas>
+        </div>
+    </div>
+
+    <div id="error" class="error" style="display: none;">
+        无法加载天气数据，请检查网络连接或稍后重试。
+    </div>
+</div>
+
+<script src="js/detail-script.js"></script>
+</body>
+</html>
